@@ -1,0 +1,28 @@
+<h2>Your Basket</h2>
+
+<table class="basket">
+    <thead>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Total</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of basket" class="item">
+            <td class="basket__item--bold">
+                {{ item.name }} <span *ngIf="item.variant">({{ item.variant }})</span>
+            </td>
+            <td>{{ item.price | currency: 'GBP' }}</td>
+            <td class="currency">{{ item.quantity }}</td>
+            <td class="currency">{{ item.quantity * item.price | currency: 'GBP' }}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="total">Total</td>
+            <td class="currency">{{ basketTotal | currency: 'GBP' }}</td>
+        </tr>
+    </tfoot>
+</table>
+
+<button type="button">Checkout</button>

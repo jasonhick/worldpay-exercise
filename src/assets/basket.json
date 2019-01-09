@@ -1,0 +1,24 @@
+[
+    {
+        "itemid": 1001,
+        "productid": 9001,
+        "name": "Learn to Sail",
+        "quantity": 1,
+        "price": 8.99
+    },
+    {
+        "itemid": 1002,
+        "productid": 9002,
+        "name": "Rope",
+        "variant": "3m",
+        "quantity": 2,
+        "price": 4.99
+    },
+    {
+        "itemid": 1003,
+        "productid": 9003,
+        "name": "Guide to Basic Knots",
+        "quantity": 1,
+        "price": 6.99
+    }
+]
