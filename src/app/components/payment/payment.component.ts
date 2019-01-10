@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { BasketService } from '../../services/basket/basket.service';
 import { PaymentService } from '../../services/payment/payment.service';
-import { BasketItem } from '../../interfaces/basket.interface';
+import { BasketItem } from '../../models/basket.interface';
+import { Payment } from '../../models/payment.class';
 
 @Component({
     selector: 'app-payment',
@@ -12,6 +13,7 @@ import { BasketItem } from '../../interfaces/basket.interface';
 export class PaymentComponent implements OnInit {
     basket: BasketItem[] = [];
     actions: Object = {};
+    payment: Payment;
 
     constructor(private basketService: BasketService, private paymentService: PaymentService) {}
 
@@ -20,10 +22,32 @@ export class PaymentComponent implements OnInit {
     // ----------------------------
     ngOnInit() {
         this.loadInitialActions();
+        this.setDummyData();
+        console.log(this.payment);
     }
 
+    // ----------------------------
+    // Component functions
+    // ----------------------------
     loadInitialActions() {
         this.paymentService.getInitialActions().subscribe(actions => (this.actions = actions));
+    }
+
+    setDummyData() {
+        this.payment = new Payment(
+            '666',
+            'card/plain',
+            '4444333322221111',
+            'Jason Hick',
+            {
+                address1: '10 Downing Street',
+                address2: 'London',
+                countryCode: 'GB',
+                postalCode: 'SW1A 2AA',
+                state: 'Kent'
+            },
+            { month: 10, year: 12 }
+        );
     }
 
     // ----------------------------
@@ -31,5 +55,9 @@ export class PaymentComponent implements OnInit {
     // ----------------------------
     get basketTotal() {
         return this.basketService.getbasketTotal(this.basket);
+    }
+
+    get diagnostic() {
+        return this.payment;
     }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { BasketItem } from '../../interfaces/basket.interface';
+import { BasketItem } from '../../models/basket.interface';
 
 @Injectable({
     providedIn: 'root'

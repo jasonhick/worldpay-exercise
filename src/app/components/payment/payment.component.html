@@ -1,1 +1,49 @@
 <h2>Checkout</h2>
+
+<form #paymentForm="ngForm">
+    <h3>Card Details</h3>
+    <div class="form-group">
+        <label for="cardNumber">Card Holder Name</label>
+        <input type="text" id="cardHolderName" name="cardHolderName" [(ngModel)]="payment.cardHolderName" required />
+    </div>
+
+    <div class="form-group">
+        <label for="cardNumber">Card Number</label>
+        <input type="text" id="cardNumber" name="cardNumber" [(ngModel)]="payment.cardNumber" required />
+    </div>
+
+    <div class="form-group">
+        <label for="cvc">CVC</label> <input type="text" id="cvc" name="cvc" [(ngModel)]="payment.cvc" required />
+    </div>
+
+    <h3>Billing Address</h3>
+    <div class="form-group">
+        <label for="address1">Line 1</label>
+        <input type="text" id="address1" name="address1" [(ngModel)]="payment.billingAddress.address1" required />
+    </div>
+
+    <div class="form-group">
+        <label for="postalCode">Post code</label>
+        <input type="text" id="postalCode" name="postalCode" [(ngModel)]="payment.billingAddress.postalCode" required />
+    </div>
+
+    <div class="form-group">
+        <label for="state">County</label>
+        <input type="text" id="state" name="state" [(ngModel)]="payment.billingAddress.state" required />
+    </div>
+
+    <div class="form-group">
+        <label for="countryCode">Country</label>
+        <input
+            type="text"
+            id="countryCode"
+            name="countryCode"
+            [(ngModel)]="payment.billingAddress.countryCode"
+            required
+        />
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
+
+<!-- <pre>{{ diagnostic | json }}</pre> -->
