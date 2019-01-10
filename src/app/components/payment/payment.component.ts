@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { BasketService } from '../../services/basket/basket.service';
+import { PaymentService } from '../../services/payment/payment.service';
 import { BasketItem } from '../../interfaces/basket.interface';
 
 @Component({
@@ -10,11 +11,19 @@ import { BasketItem } from '../../interfaces/basket.interface';
 })
 export class PaymentComponent implements OnInit {
     basket: BasketItem[] = [];
+    actions: Object = {};
 
-    constructor(private basketService: BasketService) {}
+    constructor(private basketService: BasketService, private paymentService: PaymentService) {}
 
-    loadBasketItems() {
-        this.basketService.getBasketItems().subscribe(items => (this.basket = items));
+    // ----------------------------
+    // Lifecycle Hooks
+    // ----------------------------
+    ngOnInit() {
+        this.loadInitialActions();
+    }
+
+    loadInitialActions() {
+        this.paymentService.getInitialActions().subscribe(actions => (this.actions = actions));
     }
 
     // ----------------------------
@@ -22,12 +31,5 @@ export class PaymentComponent implements OnInit {
     // ----------------------------
     get basketTotal() {
         return this.basketService.getbasketTotal(this.basket);
-    }
-
-    // ----------------------------
-    // Lifecycle Hooks
-    // ----------------------------
-    ngOnInit() {
-        this.loadBasketItems();
     }
 }

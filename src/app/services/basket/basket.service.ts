@@ -9,19 +9,10 @@ import { BasketItem } from '../../interfaces/basket.interface';
 export class BasketService {
     constructor(private http: HttpClient) {}
 
-    /**
-     * [getBasketItems description]
-     * @return [description]
-     */
     getBasketItems() {
         return this.http.get<BasketItem[]>('/assets/basket.json');
     }
 
-    /**
-     * [getbasketTotal description]
-     * @param  items [description]
-     * @return       [description]
-     */
     getbasketTotal(items: BasketItem[]) {
         return items.reduce((acc, current) => {
             return acc + current.quantity * current.price;

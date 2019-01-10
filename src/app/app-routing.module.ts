@@ -7,6 +7,11 @@ import { OrdersComponent } from './components/orders/orders.component';
 
 const routes: Routes = [
     {
+        path: '',
+        redirectTo: 'basket',
+        pathMatch: 'full'
+    },
+    {
         path: 'basket',
         component: BasketComponent
     },

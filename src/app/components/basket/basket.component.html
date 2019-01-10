@@ -2,18 +2,20 @@
 
 <table class="basket">
     <thead>
+        <th>Qty</th>
         <th>Item</th>
         <th>Price</th>
-        <th>Qty</th>
         <th>Total</th>
     </thead>
     <tbody>
         <tr *ngFor="let item of basket" class="item">
-            <td class="basket__item--bold">
+            <td class="currency center">
+                <strong> {{ item.quantity }} </strong>
+            </td>
+            <td>
                 {{ item.name }} <span *ngIf="item.variant">({{ item.variant }})</span>
             </td>
             <td>{{ item.price | currency: 'GBP' }}</td>
-            <td class="currency">{{ item.quantity }}</td>
             <td class="currency">{{ item.quantity * item.price | currency: 'GBP' }}</td>
         </tr>
     </tbody>
@@ -25,4 +27,4 @@
     </tfoot>
 </table>
 
-<button type="button">Checkout</button>
+<p><a class="button primary" [routerLink]="['/payment']">Checkout</a></p>
