@@ -16,16 +16,16 @@ describe('AppComponent', () => {
         expect(app).toBeTruthy();
     });
 
-    it(`should have as title 'worldpay-exercise'`, () => {
+    it(`should have 'Salty Sea Dog Store' as the page title`, () => {
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.debugElement.componentInstance;
-        expect(app.title).toEqual('worldpay-exercise');
+        expect(app.title).toEqual('Salty Sea Dog Store');
     });
 
-    it('should render title in a h1 tag', () => {
+    it('should have a h1 tag', () => {
         const fixture = TestBed.createComponent(AppComponent);
         fixture.detectChanges();
         const compiled = fixture.debugElement.nativeElement;
-        expect(compiled.querySelector('h1').textContent).toContain('Welcome to worldpay-exercise!');
+        expect(compiled.querySelector('h1')).toBeTruthy();
     });
 });
