@@ -1,30 +1,36 @@
-<h2>Your Basket</h2>
+<div class="columns">
+    <div class="column is-full">
 
-<table class="basket">
-    <thead>
-        <th>Qty</th>
-        <th>Item</th>
-        <th>Price</th>
-        <th>Total</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let item of basket" class="item">
-            <td class="currency center">
-                <strong> {{ item.quantity }} </strong>
-            </td>
-            <td>
-                {{ item.name }} <span *ngIf="item.variant">({{ item.variant }})</span>
-            </td>
-            <td>{{ item.price | currency: 'GBP' }}</td>
-            <td class="currency">{{ item.quantity * item.price | currency: 'GBP' }}</td>
-        </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="3" class="total">Total</td>
-            <td class="currency">{{ basketTotal | currency: 'GBP' }}</td>
-        </tr>
-    </tfoot>
-</table>
+        <h2 class="title is-3">Basket</h2>
+        <hr>
+        <table class="table is-bordered is-fullwidth">
+            <thead>
+                <th class="has-text-centered">Qty</th>
+                <th>Item</th>
+                <th class="has-text-right">Price</th>
+                <th class="has-text-right">Total</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of basket" class="item">
+                    <td class="has-text-centered">
+                        <strong> {{ item.quantity }} </strong>
+                    </td>
+                    <td>
+                        {{ item.name }} <span *ngIf="item.variant">({{ item.variant }})</span>
+                    </td>
+                    <td class="has-text-right">{{ item.price | currency: 'GBP' }}</td>
+                    <td class="has-text-right">{{ item.quantity * item.price | currency: 'GBP' }}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="has-text-right"><strong>Total</strong></td>
+                    <td class="has-text-right"><strong>{{ basketTotal | currency: 'GBP' }}</strong></td>
+                </tr>
+            </tfoot>
+        </table>
 
-<p><a class="button primary" [routerLink]="['/payment']">Checkout</a></p>
+        <p class="has-text-right"><a class="button is-primary" [routerLink]="['/payment']">Checkout</a></p>
+
+    </div>
+</div>

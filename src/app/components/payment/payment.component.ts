@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { BasketService } from '../../services/basket/basket.service';
 import { PaymentService } from '../../services/payment/payment.service';
@@ -12,7 +13,7 @@ import { Payment } from '../../models/payment.class';
 })
 export class PaymentComponent implements OnInit {
     basket: BasketItem[] = [];
-    actions: Object = {};
+    actions = {};
     payment: Payment;
 
     constructor(private basketService: BasketService, private paymentService: PaymentService) {}
@@ -22,8 +23,7 @@ export class PaymentComponent implements OnInit {
     // ----------------------------
     ngOnInit() {
         this.loadInitialActions();
-        this.setDummyData();
-        console.log(this.payment);
+        this.loadPaymentFormData();
     }
 
     // ----------------------------
@@ -33,7 +33,7 @@ export class PaymentComponent implements OnInit {
         this.paymentService.getInitialActions().subscribe(actions => (this.actions = actions));
     }
 
-    setDummyData() {
+    loadPaymentFormData() {
         this.payment = new Payment(
             '666',
             'card/plain',
@@ -50,14 +50,20 @@ export class PaymentComponent implements OnInit {
         );
     }
 
+    onSubmit() {
+        const authorizeUrl = this.actions['_links']['payments:authorize'].href;
+        this.paymentService.authorizePayment(authorizeUrl, this.payment).subscribe(data => {
+            if (data.outcome === 'authorized') {
+                console.log('PAYMENT WAS SUCCESSFUL');
+                // Next: redirect to successful page
+            }
+        });
+    }
+
     // ----------------------------
     // Get/Set functions
     // ----------------------------
     get basketTotal() {
         return this.basketService.getbasketTotal(this.basket);
-    }
-
-    get diagnostic() {
-        return this.payment;
     }
 }

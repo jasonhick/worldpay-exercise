@@ -2,7 +2,7 @@
     {
         "itemid": 1001,
         "productid": 9001,
-        "name": "Learn to Sail",
+        "name": "The Knot Handbook",
         "quantity": 1,
         "price": 8.99
     },
@@ -17,7 +17,7 @@
     {
         "itemid": 1003,
         "productid": 9003,
-        "name": "Guide to Basic Knots",
+        "name": "The Little Book of Sea Shanties",
         "quantity": 1,
         "price": 6.99
     }
