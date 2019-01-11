@@ -1,14 +1,34 @@
-# WorldpayExercise
+# Worldpay Exercise
+
+## Assigment
+
+Your customer is an E-Commerce merchant. They require a UI that will enable their shoppers to purchase goods and cancel those purchases.
+You are required to create a simple UI that allows a shopper to Authorize and optionally Cancel a payment using the Access Worldpay API's - https://beta.developer.worldpay.com/docs/access-worldpay; see Take a Payment for more details - https://beta.developer.worldpay.com/docs/access-worldpay/payments/take-a-payment.
+Additionally you can implement other flows such as settling a payment and refunds.
+
+## Solution
+
+The solution is a fake store called 'Salty Sea Dogs'! It allows a shopper to view a basket and then proceed to the checkout to pay for the items. All API responses have been stubbed/mocked using GET. In a real world situation these would be POSTS, and calls to the API would be authenticated using the relevant credentials.
+
+I have assumed the view point of a shopper, not a merchant. Other payment flows such as Cancel, Refund, Settle have not been implemented.
+
+Unit Tests are simple ones that check the existence of the component/service.
+There is a more in depth test for the BasketService which mocks a HTTP response.
+
+This example is super simple and as such is not suitable for a production environment.
+
+#### Notes
+
+-   The only views implemented are the basket, payment and success components.
+-   The basket is pre-populated with 3 items loaded from a local JSON file in the assets folder
+-   Interactions with the Worldpay API have been stubbed.
+-   Stubbed json responses are in the assets folder wpAccess & wpResponse
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
 ## Build
 
@@ -17,11 +37,3 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
