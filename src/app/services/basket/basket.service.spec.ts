@@ -25,26 +25,11 @@ describe('BasketService', () => {
                 name: 'The Knot Handbook',
                 quantity: 1,
                 price: 8.99
-            },
-            {
-                itemid: 1002,
-                productid: 9002,
-                name: 'Rope',
-                variant: '3m',
-                quantity: 2,
-                price: 4.99
-            },
-            {
-                itemid: 1003,
-                productid: 9003,
-                name: 'The Little Book of Sea Shanties',
-                quantity: 1,
-                price: 6.99
             }
         ];
     });
 
-    it('should be created', () => {
+    it('should create the service', () => {
         expect(service).toBeTruthy();
     });
 

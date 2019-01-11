@@ -18,7 +18,7 @@ describe('OrdersComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
+    it('should create the component', () => {
         expect(component).toBeTruthy();
     });
 });

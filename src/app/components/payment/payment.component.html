@@ -40,6 +40,13 @@
             </div>
 
             <div class="field">
+                <label class="label" for="address2">Line 2</label>
+                <div class="control">
+                    <input class="input" type="text" id="address2" name="address2" [(ngModel)]="payment.billingAddress.address2" required />
+                </div>
+            </div>
+
+            <div class="field">
                 <label class="label" for="postalCode">Post code</label>
                 <div class="control">
                     <input class="input" type="text" id="postalCode" name="postalCode" [(ngModel)]="payment.billingAddress.postalCode" required />

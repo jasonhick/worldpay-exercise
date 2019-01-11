@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 import { BasketService } from '../../services/basket/basket.service';
 import { PaymentService } from '../../services/payment/payment.service';
@@ -16,7 +16,7 @@ export class PaymentComponent implements OnInit {
     actions = {};
     payment: Payment;
 
-    constructor(private basketService: BasketService, private paymentService: PaymentService) {}
+    constructor(private router: Router, private basketService: BasketService, private paymentService: PaymentService) {}
 
     // ----------------------------
     // Lifecycle Hooks
@@ -55,7 +55,7 @@ export class PaymentComponent implements OnInit {
         this.paymentService.authorizePayment(authorizeUrl, this.payment).subscribe(data => {
             if (data.outcome === 'authorized') {
                 console.log('PAYMENT WAS SUCCESSFUL');
-                // Next: redirect to successful page
+                this.router.navigate(['/orders']);
             }
         });
     }

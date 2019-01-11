@@ -9,7 +9,7 @@ describe('PaymentService', () => {
             imports: [HttpClientTestingModule]
         }));
 
-    it('should be created', () => {
+    it('should create the service', () => {
         const service: PaymentService = TestBed.get(PaymentService);
         expect(service).toBeTruthy();
     });
