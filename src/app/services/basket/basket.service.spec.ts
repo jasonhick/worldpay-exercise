@@ -36,6 +36,7 @@ describe('BasketService', () => {
     it('should return data', () => {
         service.getBasketItems().subscribe(results => {
             expect(results).toBeDefined();
+            expect(results.length).toBe(1);
             expect(results).toEqual(items);
         });
 

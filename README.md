@@ -24,16 +24,17 @@ This example is super simple and as such is not suitable for a production enviro
 -   Interactions with the Worldpay API have been stubbed.
 -   Stubbed json responses are in the assets folder wpAccess & wpResponse
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
+-   This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
+-   Code was formatted using Prettier
+-   CSS Framework used is Bulma.io
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+-   Clone this repository onto your computer
+-   Run `npm install` from the root directory of the app
+-   Run `ng serve` to build and run the site
+-   Navigate to `http://localhost:4200/`.
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+-   Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
